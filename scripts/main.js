@@ -230,7 +230,8 @@ class sqlExercise extends HTMLElement {
   connectedCallback() {
     var question = this.getAttribute("data-question") || "";
     var comment = this.getAttribute("data-comment") || "";
-    var defaultText = this.getAttribute("data-default-text") || "";
+    var defaultText =
+      this.getAttribute("data-default-text").replace(/\\n/g, "\n") || ""; // allow newline characters in the text
     var solution = this.getAttribute("data-solution") || "";
     var orderSensitive = this.getAttribute("data-orderSensitive") || false;
 
@@ -254,7 +255,7 @@ class sqlExercise extends HTMLElement {
     inputArea.className = "sqlExInputArea";
 
     var textArea = document.createElement("textarea");
-    textArea.textContent = defaultText.replace(/\\n/g, "\n"); // allow newline characters in the text
+    textArea.textContent = defaultText;
     textArea.name = "input";
     inputArea.appendChild(textArea);
 
