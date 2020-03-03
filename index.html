@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+      charset="utf-8"
+    />
+    <link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css" />
+    <link rel="stylesheet" href="css/neat.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Roboto:700,500,300|Roboto+Condensed"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://unpkg.com/@webcomponents/custom-elements@1.2.0/custom-elements.min.js"></script>
+    <script src="scripts/codemirror.js"></script>
+    <script src="scripts/codemirrorsql.js"></script>
+    <script src="scripts/autorefresh.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+      window.onload = () => loadData("data/COMPANY.db");
+    </script>
+  </head>
+  <body>
+    <div id="column">
+      <div class="header">
+        <a href="/">
+          <div class="title">CPSC 4620 Example COMPANY Database</div>
+        </a>
+      </div>
+      <div class="content">
+        <br />
+        <h3>Enter your Query or command below.</h3>
+        <br />
+        <p><em>NOTE: The database will reset when you reload the page.</em></p>
+        <p>
+          <em
+            >This page uses SQLite. While any commands should be the same as any
+            other DBMS, not guarantees of compatibility are given.</em
+          >
+        </p>
+        <sql-exercise
+          data-question="This is an interactive code editor. You can edit query below."
+          data-comment="Shift+Enter is the keyboard shortcut for running the query."
+          data-default-text="SELECT *\n  FROM EMPLOYEE\n  LIMIT 3"
+        ></sql-exercise>
+        <br />
+        <p>Database ER Diagram</p>
+        <img src="imgs/ER_diagram.jpg" />
+      </div>
+      <div class="footer">
+        <!-- TODO update footer -->
+        Created by <a href="mailto:john@johnhollowell.com">John Hollowell</a>.
+        Inspired and forked from
+        <a href="https://selectstarsql.com">SelectStarSql.com</a>. Code released
+        into the public domain under the
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/"
+          >Creative Commons CC0 License</a
+        >.
+      </div>
+    </div>
+  </body>
+</html>
